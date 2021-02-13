@@ -1,3 +1,18 @@
+:root {
+  --game-Width: 600px;
+  --game-Height: 500px;
+  --game-Radius: 10px;
+  --btn-Width: 50px;
+  --time-Width: 100px;
+  --time-Height: 40px;
+  --font-size: 32px;
+  --popUp-Width: 400px;
+  --popUp-Height: 140px;
+
+  --font-color: white;
+  --score-color: darksalmon;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -6,97 +21,121 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  background: black;
   text-align: center;
+  background: black;
 }
 
-section {
-  width: 600px;
-  height: 400px;
-  margin: 25px auto;
-  border-radius: 20px;
-  background-image: url("../carrot/img/background.png");
-  background-size: 100% 100%;
-  overflow: hidden;
+.game {
+  width: var(--game-Width);
+  height: var(--game-Height);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  border-radius: var(--game-Radius);
+  background: url("/img/background.png") center/cover;
 }
 
-.startBtn {
+.game_header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.game_field {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+}
+
+button {
   outline: none;
   border: none;
-  border: 2px solid black;
-  padding: 8px 15px;
-  border-radius: 5px;
-  font-size: 20px;
   cursor: pointer;
 }
 
-.start {
-  padding: 15px 24px;
+.startBtn {
+  width: var(--btn-Width);
+  height: var(--btn-Width);
+  margin: 5px auto;
+  border: 2px solid black;
+  padding: 8px 15px;
+  border-radius: var(--game-Radius);
+  font-size: 24px;
+  transition: transform 300ms ease-in;
 }
 
-.timer,
-.counter {
-  height: 45px;
-  margin-bottom: 10px;
+.startBtn:hover {
+  transform: scale(1.1);
 }
 
 .remainTime {
-  width: 100px;
-  height: 40px;
-  line-height: 40px;
+  width: var(--time-Width);
+  height: var(--time-Height);
   margin: auto;
-  border-radius: 5px;
+  border-radius: var(--game-Radius);
   border: 2px solid black;
-  background: #f1f1f1;
+  background: var(--font-color);
+  font-size: var(--font-size);
+  visibility: hidden;
+  cursor: auto;
 }
 
 .clickCount {
   width: 40px;
   height: 40px;
-  line-height: 40px;
+  text-align: center;
   margin: auto;
-  font-size: 20px;
+  font-size: var(--font-size);
   border-radius: 50%;
   border: 2px solid black;
-  color: #f1f1f1;
-  background: coral;
-}
-
-.gaming {
-  width: 600px;
-  height: 215px;
+  color: var(--font-color);
+  background: var(--score-color);
   visibility: hidden;
+  cursor: auto;
 }
 
-.afterGame {
-  width: 200px;
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: absolute;
-  margin-top: 60px;
-  margin-left: 200px;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 2; /* overlap */
+.pop-up {
+  width: var(--popUp-Width);
+  height: var(--popUp-Height);
+  padding: 24px;
+  margin: 0 auto;
+  background: #00000090;
   font-size: 24px;
   color: white;
-  border-radius: 10px;
-  visibility: hidden;
+  transform: translateY(-150%); /* Y축 -이동 : 위로 */
+  border-radius: var(--game-Radius);
 }
 
-.afterIcon {
-  width: 40px;
-  height: 30px;
+.pop-up--hide {
+  display: none;
+}
+
+.pop-up_icon {
+  width: 60px;
+  height: 60px;
   padding: 5px 0;
-  font-size: 18px;
+  font-size: var(--font-size);
+  border-radius: var(--game-Radius);
   margin: 0 auto;
 }
 
-.bug {
-  cursor: pointer;
+.pop-up_icon:hover {
+  transform: scale(1.1);
 }
 
-.carrot {
+.pop-up_message {
+  display: block;
+}
+
+.carrot,
+.bug {
+  transition: transform 100ms ease-in;
+}
+
+.bug:hover,
+.carrot:hover {
+  transform: scale(1.1);
   cursor: pointer;
 }
