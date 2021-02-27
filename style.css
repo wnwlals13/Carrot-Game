@@ -1,141 +1,104 @@
 :root {
-  --game-Width: 600px;
-  --game-Height: 500px;
-  --game-Radius: 10px;
-  --btn-Width: 50px;
-  --time-Width: 100px;
-  --time-Height: 40px;
-  --font-size: 32px;
-  --popUp-Width: 400px;
-  --popUp-Height: 140px;
-
-  --font-color: white;
-  --score-color: darksalmon;
+  --font-size: 30px;
+  --border-raius: 10px;
 }
 
 * {
   box-sizing: border-box;
+  border-radius: var(--border-raius);
 }
 
 body {
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  text-align: center;
-  background: black;
-}
-
-.game {
-  width: var(--game-Width);
-  height: var(--game-Height);
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  border-radius: var(--game-Radius);
-  background: url("/img/background.png") center/cover;
-}
-
-.game_header {
+  background-color: rgb(63, 63, 67);
+  margin: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
 }
 
-.game_field {
+.field {
+  background-image: url("./img/background.png");
+  background-size: 100% 100%;
+  width: 700px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field_btn {
+  outline: 0;
+  border: 0;
+  padding: 0.5em 1em;
+  font-size: var(--font-size);
+  margin: 0.5em;
+}
+
+.timer {
+  width: 100px;
+  text-align: center;
+  font-size: var(--font-size);
+  border: 3px solid black;
+  background-color: white;
+  margin-bottom: 0.5em;
+  visibility: hidden;
+}
+
+.score {
+  width: 40px;
+  color: white;
+  font-size: var(--font-size);
+  text-align: center;
+  border: 3px solid black;
+  border-radius: 50%;
+  background-color: coral;
+  margin-bottom: 0.5em;
+  visibility: hidden;
+}
+.ground {
   position: relative;
   width: 100%;
-  height: 100%;
-  margin-top: 40px;
+  height: 300px;
 }
 
-button {
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
-
-.startBtn {
-  width: var(--btn-Width);
-  height: var(--btn-Width);
-  margin: 5px auto;
-  border: 2px solid black;
-  padding: 8px 15px;
-  border-radius: var(--game-Radius);
-  font-size: 24px;
-  transition: transform 300ms ease-in;
-}
-
-.startBtn:hover {
-  transform: scale(1.1);
-}
-
-.remainTime {
-  width: var(--time-Width);
-  height: var(--time-Height);
-  margin: auto;
-  border-radius: var(--game-Radius);
-  border: 2px solid black;
-  background: var(--font-color);
-  font-size: var(--font-size);
-  visibility: hidden;
-  cursor: auto;
-}
-
-.clickCount {
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  margin: auto;
-  font-size: var(--font-size);
-  border-radius: 50%;
-  border: 2px solid black;
-  color: var(--font-color);
-  background: var(--score-color);
-  visibility: hidden;
-  cursor: auto;
-}
-
-.pop-up {
-  width: var(--popUp-Width);
-  height: var(--popUp-Height);
-  padding: 24px;
-  margin: 0 auto;
-  background: #00000090;
-  font-size: 24px;
+.replay {
+  width: 400px;
+  height: 150px;
   color: white;
-  transform: translateY(-150%); /* Y축 -이동 : 위로 */
-  border-radius: var(--game-Radius);
-}
-
-.pop-up--hide {
-  display: none;
-}
-
-.pop-up_icon {
-  width: 60px;
-  height: 60px;
-  padding: 5px 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: translateY(-150%);
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: var(--font-size);
-  border-radius: var(--game-Radius);
-  margin: 0 auto;
 }
 
-.pop-up_icon:hover {
+.replay-hide {
+  visibility: hidden;
+}
+
+.replay_btn {
+  outline: 0;
+  border: 0;
+  padding: 0.3em;
+  font-size: var(--font-size);
+}
+
+.carrot:hover,
+.bug:hover {
   transform: scale(1.1);
 }
 
-.pop-up_message {
-  display: block;
-}
-
-.carrot,
-.bug {
-  transition: transform 100ms ease-in;
-}
-
-.bug:hover,
-.carrot:hover {
-  transform: scale(1.1);
-  cursor: pointer;
+.level {
+  position: absolute;
+  left: 20%;
+  margin-top: 1rem;
+  padding: 0.5rem 0;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100px;
+  font-size: 20px;
+  text-align: center;
+  visibility: hidden;
 }

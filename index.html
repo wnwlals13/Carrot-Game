@@ -3,10 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carrot-Game</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="main.js" defer></script>
-    <!-- defer 을 쓰지 않으면 html보다 먼저 script 실행 -->
+    <title>Carrot-Game-Upgrade</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./src/main.js" defer></script>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
@@ -15,41 +14,16 @@
     />
   </head>
   <body>
-    <!-- game -->
-    <section class="game">
-      <header class="game_header">
-        <button class="startBtn">
-          <i class="fas fa-play"></i>
-        </button>
-        <span class="remainTime">00:10</span>
-        <span class="clickCount">10</span>
-      </header>
-      <div class="game_field">
-        <!-- <img src="/img/bug.png" alt="bug" class="icon bug" />
-        <img src="/img/bug.png" alt="bug" class="icon bug" />
-        <img src="/img/bug.png" alt="bug" class="icon bug" />
-        <img src="/img/bug.png" alt="bug" class="icon bug" />
-        <img src="/img/bug.png" alt="bug" class="icon bug" />
-        <img src="/img/bug.png" alt="bug" class="icon bug" />
-        <img src="/img/bug.png" alt="bug" class="icon bug" />
-        <img src="/img/carrot.png" alt="carrot" class="icon carrot" />
-        <img src="/img/carrot.png" alt="carrot" class="icon carrot" />
-        <img src="/img/carrot.png" alt="carrot" class="icon carrot" />
-        <img src="/img/carrot.png" alt="carrot" class="icon carrot" />
-        <img src="/img/carrot.png" alt="carrot" class="icon carrot" />
-        <img src="/img/carrot.png" alt="carrot" class="icon carrot" />
-        <img src="/img/carrot.png" alt="carrot" class="icon carrot" />
-        <img src="/img/carrot.png" alt="carrot" class="icon carrot" />
-        <img src="/img/carrot.png" alt="carrot" class="icon carrot" />
-        <img src="/img/carrot.png" alt="carrot" class="icon carrot" /> -->
-      </div>
+    <section class="field">
+      <div class="level"></div>
+      <button class="field_btn"><i class="fas fa-play"></i></button>
+      <div class="timer">00:10</div>
+      <div class="score">0</div>
+      <div class="ground"></div>
     </section>
-    <!-- pop-up -->
-    <section class="pop-up pop-up--hide">
-      <button class="pop-up_icon">
-        <i class="fas fa-undo"></i>
-      </button>
-      <span class="pop-up_message">Replay ?</span>
+    <section class="replay replay-hide">
+      <button class="replay_btn"><i class="fas fa-redo-alt"></i></button>
+      <div class="result"></div>
     </section>
   </body>
 </html>
